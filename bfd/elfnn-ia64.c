@@ -2855,7 +2855,8 @@ allocate_dynrel_entries (struct elfNN_ia64_dyn_sym_info *dyn_i,
   shared = bfd_link_pic (x->info);
   resolved_zero = (dyn_i->h
 		   && ELF_ST_VISIBILITY (dyn_i->h->other)
-		   && dyn_i->h->root.type == bfd_link_hash_undefweak);
+		   && dyn_i->h->root.type == bfd_link_hash_undefweak
+		   && dyn_i->h != elf_hash_table (x->info)->hehdr_start);
 
   /* Take care of the GOT and PLT relocations.  */
 
